@@ -1,0 +1,3 @@
+C:/Users/nithi/CLionProjects/simpleGameEngine/cmake-build-debug/CMakeFiles/simpleGameEngine.dir
+C:/Users/nithi/CLionProjects/simpleGameEngine/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/nithi/CLionProjects/simpleGameEngine/cmake-build-debug/CMakeFiles/rebuild_cache.dir

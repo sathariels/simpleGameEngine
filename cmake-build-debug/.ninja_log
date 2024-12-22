@@ -1,0 +1,12 @@
+# ninja log v6
+3	2008	7565576230740915	CMakeFiles/simpleGameEngine.dir/main.cpp.obj	3afa4f472a424c69
+2023	2262	7565576250928320	simpleGameEngine.exe	75c0a58ba823ced
+54	256	7565606061238448	CMakeFiles/simpleGameEngine.dir/game_objects.cpp.obj	459791df06d03559
+19	259	7565606060885001	CMakeFiles/simpleGameEngine.dir/config.cpp.obj	53c6eacae943ff0b
+37	267	7565606061063416	CMakeFiles/simpleGameEngine.dir/engine.cpp.obj	e2d8fba4b3b186e9
+72	268	7565606061418758	CMakeFiles/simpleGameEngine.dir/input_handler.cpp.obj	3f376c9e323ea444
+89	285	7565606061587098	CMakeFiles/simpleGameEngine.dir/renderer.cpp.obj	e3beff9cb18d533e
+108	296	7565606061779897	CMakeFiles/simpleGameEngine.dir/utils.cpp.obj	617eb143ddc3f303
+296	575	7565606063656200	simpleGameEngine.exe	73fd71304bbc59b2
+27	1039	7565607774870372	CMakeFiles/simpleGameEngine.dir/config.cpp.obj	53c6eacae943ff0b
+45	2022	7565607775048705	CMakeFiles/simpleGameEngine.dir/renderer.cpp.obj	e3beff9cb18d533e
