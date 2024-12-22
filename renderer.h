@@ -1,6 +1,6 @@
 #ifndef RENDERER_H
 #define RENDERER_H
-// nice
+// nice hello
 #include <SDL.h>
 #include "config.h"
 using namespace std;
