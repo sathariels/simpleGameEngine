@@ -1,12 +1,12 @@
 #include "renderer.h"
 #include <iostream> // For error messages
 using namespace std;
+
 Renderer::Renderer() : window(nullptr), renderer(nullptr) {
     if (!initialize()) {
         cerr << "Failed to initialize SDL window and renderer" << endl;
-        cleanup();
-    }
 
+    }
 }
 
 Renderer::~Renderer() {
@@ -25,24 +25,47 @@ Renderer::~Renderer() {
     // Quit SDL
     SDL_Quit();
 }
-bool Renderer::initialize() {
 
+bool Renderer::initialize() {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         cerr << "SDL could not initialize! SDL Error: " << SDL_GetError() << endl;
         return false;
     }
 
-    window = SDL_CreateWindow("Pong Game", SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Pong Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     if (!window) {
-        cerr << "Failed to create SDL window" << SDL_GetError() << endl;
+        cerr << "Failed to create SDL window: " << SDL_GetError() << endl;
         return false;
     }
-}
 
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if (!renderer) {
+        cerr << "Failed to create SDL renderer: " << SDL_GetError() << endl;
+        return false;
+    }
+
+    return true;
+}
 
 void Renderer::renderFrame(int paddle1X, int paddle1Y, int paddle2X, int paddle2Y, int ballX, int ballY) {
-
+    // Clear the screen with the background color
     SDL_SetRenderDrawColor(renderer, COLOR_BACKGROUND[0], COLOR_BACKGROUND[1], COLOR_BACKGROUND[2], 255);
+    SDL_RenderClear(renderer);
 
+    // Draw paddle 1
+    SDL_Rect paddle1 = {paddle1X, paddle1Y, PADDLE_WIDTH, PADDLE_HEIGHT};
+    SDL_SetRenderDrawColor(renderer, COLOR_PADDLE[0], COLOR_PADDLE[1], COLOR_PADDLE[2], 255);
+    SDL_RenderFillRect(renderer, &paddle1);
+
+    // Draw paddle 2
+    SDL_Rect paddle2 = {paddle2X, paddle2Y, PADDLE_WIDTH, PADDLE_HEIGHT};
+    SDL_RenderFillRect(renderer, &paddle2);
+
+    // Draw the ball
+    SDL_Rect ball = {ballX, ballY, BALL_SIZE, BALL_SIZE};
+    SDL_SetRenderDrawColor(renderer, COLOR_BALL[0], COLOR_BALL[1], COLOR_BALL[2], 255);
+    SDL_RenderFillRect(renderer, &ball);
+
+    // Present the updated frame
+    SDL_RenderPresent(renderer);
 }
-
