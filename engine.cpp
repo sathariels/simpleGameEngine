@@ -28,7 +28,7 @@ void Engine::run() {
                 running = false; // Exit the game loop
             }
         }
-
+        inputHandler.handleInput(running, paddle1Y, paddle2Y);
         // Update game state (placeholder for now)
 
         // Render the frame
