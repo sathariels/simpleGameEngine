@@ -21,6 +21,7 @@ add_executable(simpleGameEngine main.cpp
         renderer.h
         utils.cpp
         input_handler.h
+        game_objects.h
 )
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY})
